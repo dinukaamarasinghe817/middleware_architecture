@@ -1,6 +1,10 @@
 import sys
 import socket
 import threading
+import select
+
+isActive = threading.Event()
+isActive.set()
 
 
 def run(host,port,mode):
@@ -14,18 +18,35 @@ def run(host,port,mode):
             if data.lower() != "terminate":
                 client_sock.send(data.encode())
             else:
+                print("Goodbye!\n")
                 break
         
         client_sock.close()
     else:
-        while True:
-            data = client_sock.recv(1024).decode()
-            if data != "":
-                print(data)
-            else:
-                break
+        def input_thread():
+            while isActive.is_set():
+                user_input = input()
+                if user_input.lower() == 'terminate':
+                    print("Goodbye!\n")
+                    isActive.clear()
+                    break
+
+        input_thread = threading.Thread(target=input_thread)
+        input_thread.start()
+
+        def subscribe_thread():
+            while isActive.is_set():
+                rlist, _, _ = select.select([client_sock], [], [], 1)
+                if client_sock in rlist:
+                    data = client_sock.recv(1024).decode()
+                    if not data:
+                        break
+                    print(data)
+            
+            client_sock.close()
         
-        client_sock.close()
+        subscribe_thread = threading.Thread(target=subscribe_thread)
+        subscribe_thread.start()
 
 
 if __name__ == "__main__":
