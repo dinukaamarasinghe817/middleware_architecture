@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper, margin=1.2in]{geometry} % Set page margins to
+
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{adjustbox}
+\usetikzlibrary{automata, positioning}
+
+% Set up the page style
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\courseName}
+\rhead{\thepage}
+%\fancyfoot[L]{\hrule\vspace{2pt}\studentInfo}
+
+\newcommand{\defaultindent}{\setlength{\parindent}{1cm}}
+% Define variables for course details and student information
+\newcommand{\courseUniversity}{University of Colombo School of Computing}
+\newcommand{\courseName}{SCS3203 Middleware Architecture}
+\newcommand{\assignmentTitle}{Assignment 1}
+\newcommand{\studentInfo}{
+\begin{itemize}[label={}, noitemsep]
+\item \hspace{5cm} Team KID\textsuperscript{2}S
+\vspace*{0.5cm}
+\item \hspace{3cm} 20000103 - D.A. Amarasinghe 
+\item \hspace{3cm} 20001207 - K.K.S Nayanathara
+\item \hspace{3cm} 20000723 - A.A.D Harshani
+\item \hspace{3cm} 20000766 - P.A.I Heshan
+\item \hspace{3cm} 20000804 - J.K.K.K. Jagoda
+\end{itemize}
+}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    {\LARGE \courseUniversity \par}
+    \vspace{1.5cm}
+    {\Large \courseName \par}
+    \vspace{1cm}
+    {\Large \assignmentTitle \par}
+    \vspace{2cm}
+    {\large \studentInfo \par}
+    \vfill
+    {\large \today \par}
+\end{titlepage}
+
+% Reset page numbering
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% Answer sheet
+\section*{Task 4}
+
+%\begin{center}
+\subsection*{Enhance the Architecture to Gain Improvement in Availability and Reliability\\}
+%\end{center}
+
+During the pandemic, university students have faced challenges that have led to feelings of
+depression. However, online teaching has also brought some positive aspects. It has provided
+flexibility and convenience, allowing students to adapt their learning schedules. Online platforms
+have facilitated collaboration and engagement, fostering connections and active participation.
+While these benefits exist, it is important to address the mental health concerns of students and
+provide support to ensure their well-being.\\
+
+
+\end{document}
