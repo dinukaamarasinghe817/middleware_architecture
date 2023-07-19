@@ -65,6 +65,13 @@ Our system's existing Pub/Sub application relies on just one server node, which 
 
 The proposed distributed design gives our current system a number of significant upgrades. The addition of several broker instances, in the first place, ensures fault tolerance and reduces the possibility of communication breakdown due to server failures. The demand is distributed equitably across the system since each server node hosting a broker may manage client connections and topic subscriptions. The implementation of asynchronous communication methods further improves the performance and responsiveness of our Pub/Sub system. Utilizing a load balancer also makes it possible to utilize resources effectively and avoid overloading particular nodes. We will be able to accomplish data redundancy and better resource usage by sharding topics and replicating broker state, which increases reliability. We can include monitoring and auto-scaling systems, enabling the system to automatically modify its capacity based on the load, to maintain the system's health and scalability. Overall, the distributed Pub/Sub architecture that is being suggested offers a reliable messaging system that can resist server outages and maintain constant user communication. \\
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{diagram.jpeg}
+    \caption{Distributed pub-sub model \href{https://drive.google.com/file/d/1Fb0DC_PNNx6Xuwt2y6slLfDzqltXbMOb/view?usp=sharing}{\textcolor{blue}{link}}}
+    \label{fig:sample}
+\end{figure}
+
 \noindent
 GitHub Repository: \href{https://github.com/dinukaashan77/middleware_architecture.git}{\textcolor{blue}{https://github.com/dinukaashan77/middleware\_architecture.git}}
 
