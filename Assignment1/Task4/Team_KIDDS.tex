@@ -6,6 +6,7 @@
 \usepackage{tikz}
 \usepackage{amssymb}
 \usepackage{adjustbox}
+\usepackage{hyperref}
 \usetikzlibrary{automata, positioning}
 
 % Set up the page style
@@ -60,12 +61,11 @@
 \subsection*{Enhance the Architecture to Gain Improvement in Availability and Reliability\\}
 %\end{center}
 
-During the pandemic, university students have faced challenges that have led to feelings of
-depression. However, online teaching has also brought some positive aspects. It has provided
-flexibility and convenience, allowing students to adapt their learning schedules. Online platforms
-have facilitated collaboration and engagement, fostering connections and active participation.
-While these benefits exist, it is important to address the mental health concerns of students and
-provide support to ensure their well-being.\\
+Our system's existing Pub/Sub application relies on just one server node, which has a big impact on its availability and dependability. We suggest a strong, distributed design to overcome this issue, ensuring increased fault tolerance and constant communication even in the event of server failure. A central broker serves as an intermediary between publishers and subscribers in the new architecture, which is built on a broker-based Pub/Sub paradigm. Copies of the broker are hosted by numerous server nodes, enabling redundancy and load balancing. The broker effectively transmits communications that publishers give to it to the right subscribers. We can eliminate the single point of failure by decentralizing the system and having numerous broker instances, ensuring continued communication even if one of the servers fails. To achieve high availability and data integrity, we can employ fault detection techniques and data replication across servers.\\
 
+The proposed distributed design gives our current system a number of significant upgrades. The addition of several broker instances, in the first place, ensures fault tolerance and reduces the possibility of communication breakdown due to server failures. The demand is distributed equitably across the system since each server node hosting a broker may manage client connections and topic subscriptions. The implementation of asynchronous communication methods further improves the performance and responsiveness of our Pub/Sub system. Utilizing a load balancer also makes it possible to utilize resources effectively and avoid overloading particular nodes. We will be able to accomplish data redundancy and better resource usage by sharding topics and replicating broker state, which increases reliability. We can include monitoring and auto-scaling systems, enabling the system to automatically modify its capacity based on the load, to maintain the system's health and scalability. Overall, the distributed Pub/Sub architecture that is being suggested offers a reliable messaging system that can resist server outages and maintain constant user communication. \\
+
+\noindent
+GitHub Repository: \href{https://github.com/dinukaashan77/middleware_architecture.git}{\textcolor{blue}{https://github.com/dinukaashan77/middleware\_architecture.git}}
 
 \end{document}
